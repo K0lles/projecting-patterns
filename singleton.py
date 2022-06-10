@@ -18,7 +18,7 @@ class DataBase(metaclass=SingletonBase):
         if self.table_amount > 0:
             self.table_amount -= 1
         else:
-            raise ValueError("There is no connections")
+            raise ConnectionError("There is no connections")
 
 
 if __name__ == "__main__":
