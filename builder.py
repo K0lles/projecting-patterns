@@ -27,7 +27,20 @@ class Pizza:
         self.cheese = []
 
     def __str__(self):
-        return f"Pizza {self.name} with {[meat for meat in self.meat]} and {self.cheese} prepared on {self.dough} dough"
+        string_to_return = f"Pizza {self.name} with "
+
+        if self.meat:
+            for meat in self.meat:
+                string_to_return += f"{meat}, "
+            string_to_return += "and"
+
+        if self.cheese:
+            for cheese in self.cheese:
+                string_to_return += f"{cheese}, "
+
+        string_to_return += f"prepared on {self.dough}!"
+
+        return string_to_return
 
 
 class AbstractBuilder(ABC):
@@ -56,7 +69,24 @@ class MargaritaBuilder(AbstractBuilder):
         self.pizza.dough = PizzaDoughType.WHEAT
 
     def add_meat(self) -> None:
-        self.pizza.meat.append(PizzaMeat.HAM)
+        pass
+
+    def add_cheese(self) -> None:
+        self.pizza.cheese.extend([cheese for cheese in PizzaCheese])
+
+    def get_pizza(self) -> Pizza:
+        return self.pizza
+
+
+class FourCheesesBuilder(AbstractBuilder):
+    def __init__(self):
+        self.pizza = Pizza("Four cheeses")
+
+    def set_dough(self) -> None:
+        self.pizza.dough = PizzaDoughType.WHEAT
+
+    def add_meat(self) -> None:
+        pass
 
     def add_cheese(self) -> None:
         self.pizza.cheese.extend([cheese for cheese in PizzaCheese])
@@ -81,4 +111,10 @@ if __name__ == "__main__":
     builder_one = MargaritaBuilder()
     director = Director(builder_one)
     pizza = director.make_pizza()
+
+    builder_second = FourCheesesBuilder()
+    director_second = Director(builder_second)
+    pizza_second = director_second.make_pizza()
+
     print(pizza)
+    print(pizza_second)
