@@ -10,13 +10,13 @@ class Person:
                f"</Person>"
 
 
-class Adapter:
+class Adapter(Person):
     def __init__(self, person: Person):
         self.person = person
 
     def get_info(self):
         string_to_return = "Person {" + "\n"
-        string_to_return += f"\tname: {self.person.name},\n" \
+        string_to_return += f"\tname: '{self.person.name}',\n" \
                             f"\tage: {self.person.age}\n"
         string_to_return += "}"
         return string_to_return
