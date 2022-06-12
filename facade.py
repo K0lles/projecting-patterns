@@ -6,6 +6,9 @@ class Product:
     def __str__(self):
         return self.name
 
+    def __repr__(self):
+        return self.name
+
 
 class Stock:
     __products = []
@@ -93,5 +96,4 @@ if __name__ == '__main__':
     Stock.add_product_to_stock(nail)
     customer_one = Customer("Marina", "screwdriver", "nail", "tape")
     products = customer_one.order_products()
-    for product_each in products:
-        print(product_each)
+    print(products)
