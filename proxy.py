@@ -20,12 +20,12 @@ class SiteProxy(ISite):
         self.__site = site
         self.__cache = {}
 
-    def get_page(self, number: str):
-        if not self.__cache.get(number):
-            page = self.__site.get_page(number)
-            self.__cache[number] = page
+    def get_page(self, name: str):
+        if not self.__cache.get(name):
+            page = self.__site.get_page(name)
+            self.__cache[name] = page
         else:
-            page = self.__cache.get(number) + " returned from cache"
+            page = self.__cache.get(name) + " returned from cache"
         return page
 
 
