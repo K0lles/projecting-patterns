@@ -1,3 +1,4 @@
 #ignoring .idea/
 
 .idea/
+.venv/
