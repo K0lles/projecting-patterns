@@ -1,7 +1,7 @@
 from MVC.controllers import *
 
 if __name__ == '__main__':
-    while(True):
+    while True:
         coming = input("1 - Створити людину\n"
                        "2 - Видалити людину\n"
                        "3 - Вивести список існуючих людей\n"
@@ -15,14 +15,14 @@ if __name__ == '__main__':
 
         elif int(coming) == 2:
             pk = input("Введіть айді: ")
-            print(deleting_person(pk))
+            print(deleting_person(int(pk)))
 
         elif int(coming) == 3:
             print(show_all_persons())
 
         elif int(coming) == 4:
             pk = input("Введіть айді: ")
-            print(get_person(pk))
+            print(get_person(int(pk)))
 
         else:
             break

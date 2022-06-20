@@ -19,6 +19,7 @@ class Person:
 
         return None
 
+
     @staticmethod
     def save(first_name: str, last_name: str, age: int):
         return Person(first_name, last_name, age)
@@ -35,3 +36,9 @@ class Person:
     @staticmethod
     def all():
         return Person._all_persons
+
+    def __str__(self):
+        return f"{self.id} {self.first_name} {self.second_name}, {self.age} years old"
+
+    def __repr__(self):
+        return self.__str__()
