@@ -1,4 +1,4 @@
-from . import models
+import models
 
 
 def creating_person(first_name: str, last_name: str, age: int):
